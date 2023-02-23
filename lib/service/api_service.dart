@@ -5,10 +5,10 @@ import 'package:newsapi/model/article_model.dart';
 
 class ApiService {
   final all_news_url =
-      "https://newsapi.org/v2/everything?q=Apple&from=2023-02-22&sortBy=popularity&apiKey={Write your api key}";
+      "https://newsapi.org/v2/everything?q=*&apiKey=4ebc144ba1d845e192540df6bd2526cd";
 
   final breaking_news_url =
-      "https://newsapi.org/v2/everything?q=Apple&from=2023-02-22&sortBy=popularity&apiKey={Write your api key}";
+      "https://newsapi.org/v2/top-headlines?country=us&apiKey=4ebc144ba1d845e192540df6bd2526cd";
 
   Future<List<ArticleModel>> getAllNews() async {
     try {

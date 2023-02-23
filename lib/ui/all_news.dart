@@ -24,7 +24,7 @@ class _AllNewsState extends State<AllNews> {
             List<ArticleModel> articleModel = snapshot.data ?? [];
             return ListView.builder(itemBuilder: (context, index) {
               return NewsListItem(articleModel: articleModel[index],);
-            });
+            },itemCount: articleModel.length,);
           }
           return Center(
             child: CircularProgressIndicator(),

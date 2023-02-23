@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapi/model/article_model.dart';
 import 'package:newsapi/ui/news_details.dart';
@@ -24,11 +25,13 @@ class NewsListItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
-              articleModel.urlToImage ??
-                  "https://mybiros.com/wp-content/themes/qik/assets/images/no-image/No-Image-Found-400x264.png",
+            CachedNetworkImage(
               fit: BoxFit.fitWidth,
+              width: double.infinity,
               height: 250,
+              imageUrl:articleModel.urlToImage.toString(),
+              placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
             SizedBox(
               height: 8.0,
@@ -54,6 +57,10 @@ class NewsListItem extends StatelessWidget {
                 Text(articleModel.publishedAt.toString())
               ],
             ),
+            SizedBox(
+              height: 5.0,
+            ),
+            Text("Written by "+articleModel.author.toString(),style: TextStyle(fontSize: 14),),
             SizedBox(
               height: 8.0,
             ),

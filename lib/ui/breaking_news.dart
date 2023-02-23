@@ -26,7 +26,7 @@ class _BreakingNewsState extends State<BreakingNews> {
               return NewsListItem(
                 articleModel: articleModel[index],
               );
-            });
+            },itemCount: articleModel.length,);
           }
           return Center(
             child: CircularProgressIndicator(),
